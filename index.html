@@ -1,0 +1,953 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>黑料社大赛-爆料竞技赛道与赛制解析</title>
+<meta name="description" content="黑料社大赛是围绕匿名爆料与信息核实展开的竞技赛事，下设图文证据链、时间线复盘、评论区答疑三条赛道，本文整理赛程节奏、评审规则、参赛作品拆解与观赛入口。">
+<meta name="keywords" content="黑料社大赛">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231b1d2a'/%3E%3Cpath d='M9 8h10l6 6v10H9z' fill='none' stroke='%23f0a63c' stroke-width='2.2'/%3E%3Cpath d='M13 15h7M13 19h7' stroke='%23f0a63c' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1b1d2a;
+  --ink-soft:#3c4053;
+  --muted:#6a7080;
+  --line:#e2e3ea;
+  --paper:#f6f5f1;
+  --card:#ffffff;
+  --brand:#20264a;
+  --accent:#d4822a;
+  --accent-soft:#f7e7d2;
+  --teal:#2f6f6a;
+  --teal-soft:#e0eeec;
+  --red:#a63a34;
+  --red-soft:#f8e6e4;
+  --radius:12px;
+  --radius-sm:7px;
+  --shadow:0 1px 2px rgba(27,29,42,.06),0 6px 18px -10px rgba(27,29,42,.22);
+  --shadow-lift:0 2px 4px rgba(27,29,42,.08),0 12px 26px -12px rgba(27,29,42,.28);
+  --fs-xs:12px;
+  --fs-sm:13.5px;
+  --fs-base:15.5px;
+  --fs-lg:17px;
+  --fs-h3:19px;
+  --fs-h2:24px;
+  --fs-h1:33px;
+  --sp1:6px;--sp2:10px;--sp3:16px;--sp4:24px;--sp5:36px;--sp6:52px;
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --stick:96px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--stick)}
+body{
+  margin:0;font-family:var(--font);font-size:var(--fs-base);line-height:1.78;
+  color:var(--ink-soft);background:var(--paper);
+  -webkit-text-size-adjust:100%;
+}
+h1,h2,h3,h4{margin:0;color:var(--ink);line-height:1.32;font-weight:700}
+p{margin:0 0 var(--sp2)}
+a{color:var(--brand);text-decoration:none}
+a:hover{color:var(--accent)}
+ul,ol{margin:0 0 var(--sp2);padding-left:1.2em}
+li{margin-bottom:5px}
+img{max-width:100%;display:block}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+/* ---------- 吸顶公告条 ---------- */
+.notice{
+  position:sticky;top:0;z-index:60;
+  background:var(--brand);color:#e8e7f2;
+  font-size:var(--fs-sm);
+}
+.notice-in{
+  max-width:1180px;margin:0 auto;padding:7px var(--sp3);
+  display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+}
+.notice b{color:#ffd79a;font-weight:700;white-space:nowrap}
+.notice .dot{width:6px;height:6px;border-radius:50%;background:#f0a63c;flex:0 0 auto}
+.notice a{color:#ffd79a;text-decoration:underline;text-underline-offset:2px}
+.notice span.txt{flex:1 1 220px;min-width:0}
+
+/* ---------- 页头 ---------- */
+header.site{
+  position:sticky;top:31px;z-index:55;
+  background:rgba(246,245,241,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.head-in{
+  max-width:1180px;margin:0 auto;padding:10px var(--sp3);
+  display:flex;align-items:center;gap:var(--sp3);
+}
+.brand{display:flex;align-items:center;gap:9px;flex:0 0 auto}
+.brand svg{width:34px;height:34px;flex:0 0 auto}
+.brand .name{font-size:18px;font-weight:800;color:var(--ink);letter-spacing:.5px;white-space:nowrap}
+nav.main{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap}
+nav.main a{
+  font-size:var(--fs-sm);color:var(--ink-soft);padding:7px 10px;border-radius:var(--radius-sm);
+  font-weight:500;
+}
+nav.main a:hover{background:#ecebe4;color:var(--brand)}
+.head-tools{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.search{
+  display:flex;align-items:center;gap:4px;background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius-sm);padding:3px 4px 3px 9px;
+}
+.search input{
+  border:0;background:transparent;font-size:var(--fs-sm);width:132px;color:var(--ink);
+  padding:4px 0;font-family:inherit;
+}
+.search input:focus{outline:none}
+.search button{
+  border:0;background:var(--brand);color:#fff;font-size:var(--fs-xs);
+  border-radius:5px;padding:5px 9px;cursor:pointer;
+}
+.search button:hover{background:#2e3663}
+.menu-btn{
+  display:none;border:1px solid var(--line);background:#fff;border-radius:var(--radius-sm);
+  padding:7px 11px;font-size:var(--fs-sm);color:var(--ink);cursor:pointer;
+}
+.search-feedback{
+  display:none;max-width:1180px;margin:0 auto;padding:0 var(--sp3) 10px;
+  font-size:var(--fs-sm);color:var(--red);
+}
+
+/* ---------- 首屏 ---------- */
+.hero{
+  max-width:1180px;margin:0 auto;padding:var(--sp5) var(--sp3) var(--sp4);
+  display:grid;grid-template-columns:1.15fr .85fr;gap:var(--sp5);align-items:center;
+}
+.hero .tag{
+  display:inline-block;font-size:var(--fs-xs);letter-spacing:2px;color:var(--accent);
+  font-weight:700;border:1px solid #e9c89a;background:var(--accent-soft);
+  padding:3px 10px;border-radius:20px;margin-bottom:var(--sp3);
+}
+.hero h1{font-size:var(--fs-h1);letter-spacing:1px;margin-bottom:var(--sp3)}
+.hero p.lead{font-size:var(--fs-lg);color:var(--ink-soft);max-width:36em}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:var(--sp4)}
+.btn{
+  display:inline-block;padding:10px 20px;border-radius:var(--radius-sm);font-size:var(--fs-sm);
+  font-weight:600;border:1px solid transparent;transition:transform .15s ease,box-shadow .15s ease;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn-solid{background:var(--brand);color:#fff}
+.btn-solid:hover{color:#fff;background:#2e3663}
+.btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+.hero-stats{display:flex;gap:var(--sp4);margin-top:var(--sp4);flex-wrap:wrap}
+.hero-stats div{min-width:88px}
+.hero-stats b{display:block;font-size:22px;color:var(--ink);line-height:1.2}
+.hero-stats span{font-size:var(--fs-xs);color:var(--muted)}
+
+.hero-art{position:relative;height:340px}
+.hero-art .board{
+  position:absolute;inset:0;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);box-shadow:var(--shadow);
+  display:grid;grid-template-rows:44px 1fr;overflow:hidden;
+}
+.hero-art .board-head{
+  display:flex;align-items:center;gap:6px;padding:0 14px;border-bottom:1px solid var(--line);
+  background:#fbfaf7;font-size:var(--fs-xs);color:var(--muted);
+}
+.hero-art .board-head i{width:8px;height:8px;border-radius:50%;background:#d9d8d0;display:inline-block}
+.hero-art .board-body{position:relative;padding:12px}
+.track{position:relative;height:100%;display:flex;flex-direction:column;justify-content:space-around}
+.track-row{display:flex;align-items:center;gap:8px}
+.track-row .lbl{font-size:var(--fs-xs);color:var(--muted);width:52px;flex:0 0 auto;text-align:right}
+.track-row .bar{
+  flex:1;height:22px;border-radius:5px;background:#f1f0ea;position:relative;overflow:hidden;
+}
+.track-row .bar i{
+  position:absolute;left:0;top:0;bottom:0;border-radius:5px;
+}
+.track-row:nth-child(1) .bar i{width:82%;background:linear-gradient(90deg,#2f6f6a,#3fa79e)}
+.track-row:nth-child(2) .bar i{width:64%;background:linear-gradient(90deg,#d4822a,#e9a95d)}
+.track-row:nth-child(3) .bar i{width:47%;background:linear-gradient(90deg,#20264a,#4b5590)}
+.track-row:nth-child(4) .bar i{width:31%;background:linear-gradient(90deg,#a63a34,#cd6a63)}
+.stamp{
+  position:absolute;right:-8px;top:-12px;width:82px;height:82px;border-radius:50%;
+  border:2px dashed var(--accent);display:grid;place-items:center;text-align:center;
+  background:#fffdf8;color:var(--accent);font-size:11px;font-weight:700;line-height:1.3;
+  transform:rotate(8deg);box-shadow:var(--shadow);
+}
+
+/* ---------- 布局 ---------- */
+.layout{
+  max-width:1180px;margin:0 auto;padding:0 var(--sp3) var(--sp6);
+  display:grid;grid-template-columns:1fr 300px;gap:var(--sp5);align-items:start;
+}
+main{min-width:0}
+aside{min-width:0}
+section.block{margin-bottom:var(--sp6);scroll-margin-top:var(--stick)}
+.block > h2{
+  font-size:var(--fs-h2);letter-spacing:.5px;margin-bottom:var(--sp2);
+  display:flex;align-items:center;gap:10px;
+}
+.block > h2::before{
+  content:"";width:5px;height:20px;border-radius:3px;background:var(--accent);flex:0 0 auto;
+}
+.block > .sub{font-size:var(--fs-sm);color:var(--muted);margin-bottom:var(--sp3)}
+
+/* 概览卡 */
+.overview{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:var(--sp4);box-shadow:var(--shadow);
+  display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp3) var(--sp4);
+}
+.overview h3{font-size:var(--fs-h3);margin-bottom:6px}
+.overview p{font-size:var(--fs-sm);margin:0;color:var(--ink-soft)}
+.overview .wide{grid-column:1/-1;border-top:1px solid var(--line);padding-top:var(--sp3)}
+
+/* 精选网格 */
+.pick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp3)}
+.pick-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.pick-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift)}
+.pick-card img{width:100%;height:132px;object-fit:cover}
+.pick-card .pc-body{padding:12px 14px 14px}
+.pick-card h3{font-size:var(--fs-lg);margin-bottom:6px}
+.pick-card p{font-size:var(--fs-sm);margin:0 0 8px}
+.meta{font-size:var(--fs-xs);color:var(--muted);display:flex;gap:10px;flex-wrap:wrap}
+.badge{
+  display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;font-weight:700;
+  background:var(--teal-soft);color:var(--teal);
+}
+.badge.warn{background:var(--red-soft);color:var(--red)}
+.badge.acc{background:var(--accent-soft);color:#8a5316}
+
+/* 最新更新紧凑列表 */
+.updates{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.updates li{
+  list-style:none;margin:0;padding:12px 16px;border-bottom:1px solid #f0efe9;
+  display:grid;grid-template-columns:74px 1fr auto;gap:10px;align-items:baseline;
+  font-size:var(--fs-sm);
+}
+.updates li:last-child{border-bottom:0}
+.updates .t{color:var(--muted);font-size:var(--fs-xs);font-variant-numeric:tabular-nums}
+.updates .tagline{font-size:11px;color:var(--accent);border:1px solid #e9c89a;border-radius:20px;padding:1px 7px;white-space:nowrap}
+.updates ul{margin:0;padding:0}
+
+/* 分类入口 标签索引 */
+.cat-index{display:flex;flex-wrap:wrap;gap:9px}
+.cat-index a{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:7px 14px;font-size:var(--fs-sm);color:var(--ink-soft);font-weight:500;
+  transition:background .15s ease,border-color .15s ease,transform .15s ease;
+}
+.cat-index a:hover{background:var(--brand);color:#fff;border-color:var(--brand);transform:translateY(-2px)}
+.cat-index a small{color:var(--muted);margin-left:5px}
+.cat-index a:hover small{color:#c9cbe0}
+
+/* 深度解析 */
+.deep{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:var(--sp4) var(--sp5);box-shadow:var(--shadow);
+}
+.deep > h2{margin-bottom:var(--sp3)}
+.deep h3{font-size:var(--fs-h3);margin:var(--sp4) 0 var(--sp2);padding-top:var(--sp2);border-top:1px dashed var(--line)}
+.deep h3:first-of-type{border-top:0;padding-top:0;margin-top:0}
+.claim{
+  border-left:4px solid var(--accent);background:#fffaf1;padding:10px 16px;
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin:var(--sp3) 0;font-size:var(--fs-base);
+}
+.claim b{color:var(--ink)}
+.checks{width:100%;border-collapse:collapse;font-size:var(--fs-sm);margin:var(--sp2) 0 var(--sp3)}
+.checks th,.checks td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.checks th{background:#faf9f5;color:var(--ink);font-weight:700}
+.checks td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.quote{
+  margin:var(--sp3) 0;padding:var(--sp3) var(--sp4);background:var(--teal-soft);
+  border-radius:var(--radius-sm);font-size:var(--fs-base);color:#254b48;
+}
+.quote cite{display:block;font-style:normal;font-size:var(--fs-xs);color:#4b7c78;margin-top:6px}
+
+/* 体验指南 编号步骤 */
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:var(--sp3)}
+.steps li{
+  counter-increment:s;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);padding:14px 16px 14px 58px;position:relative;margin:0;
+  box-shadow:var(--shadow);font-size:var(--fs-sm);
+}
+.steps li::before{
+  content:counter(s,decimal-leading-zero);position:absolute;left:16px;top:13px;
+  width:28px;height:28px;border-radius:50%;background:var(--brand);color:#fff;
+  display:grid;place-items:center;font-size:12px;font-weight:700;
+}
+.steps li b{display:block;color:var(--ink);font-size:var(--fs-base);margin-bottom:3px}
+
+/* FAQ */
+details.faq{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);
+  margin-bottom:9px;overflow:hidden;
+}
+details.faq summary{
+  cursor:pointer;padding:12px 42px 12px 15px;font-size:var(--fs-base);font-weight:600;
+  color:var(--ink);position:relative;list-style:none;
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{
+  content:"+";position:absolute;right:15px;top:50%;transform:translateY(-50%);
+  color:var(--accent);font-size:19px;font-weight:700;line-height:1;
+}
+details.faq[open] summary::after{content:"–"}
+details.faq .a{padding:0 15px 14px;font-size:var(--fs-sm);color:var(--ink-soft)}
+details.faq[open] summary{background:#fbfaf6}
+
+/* 评论 */
+.comments{display:grid;gap:var(--sp3)}
+.cmt{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:13px 16px;font-size:var(--fs-sm);box-shadow:var(--shadow);
+}
+.cmt .who{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.cmt .av{
+  width:26px;height:26px;border-radius:50%;background:var(--teal-soft);color:var(--teal);
+  display:grid;place-items:center;font-size:12px;font-weight:700;flex:0 0 auto;
+}
+.cmt .who b{font-size:var(--fs-sm);color:var(--ink)}
+.cmt .who span{font-size:var(--fs-xs);color:var(--muted)}
+.cmt p{margin:0}
+.cmt .repl{font-size:var(--fs-xs);color:var(--muted);margin-top:6px;border-top:1px dashed var(--line);padding-top:5px}
+
+/* 资讯 & 推荐 */
+.news-list{margin:0;padding:0}
+.news-list li{
+  list-style:none;margin:0;padding:11px 0;border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:1fr auto;gap:12px;font-size:var(--fs-sm);
+}
+.news-list li:last-child{border-bottom:0}
+.news-list b{color:var(--ink);font-weight:600}
+.news-list .d{color:var(--muted);font-size:var(--fs-xs);white-space:nowrap}
+
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags a{
+  background:var(--accent-soft);color:#7d4a12;font-size:var(--fs-sm);border-radius:20px;
+  padding:6px 14px;font-weight:500;
+}
+.tags a:hover{background:var(--accent);color:#fff}
+
+/* 榜单 */
+.rank{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.rank ol{list-style:none;margin:0;padding:0;counter-reset:r}
+.rank li{
+  counter-increment:r;display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:baseline;
+  padding:11px 16px;border-bottom:1px solid #f0efe9;font-size:var(--fs-sm);margin:0;
+}
+.rank li:last-child{border-bottom:0}
+.rank li::before{
+  content:counter(r);color:var(--muted);font-weight:700;font-size:13px;font-variant-numeric:tabular-nums;
+}
+.rank li:nth-child(1)::before{color:var(--accent)}
+.rank li:nth-child(2)::before{color:var(--teal)}
+.rank .score{color:var(--muted);font-size:var(--fs-xs);white-space:nowrap}
+
+/* 侧栏 */
+.side-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:var(--sp3) var(--sp3) var(--sp2);box-shadow:var(--shadow);margin-bottom:var(--sp3);
+}
+.side-card h3{font-size:var(--fs-base);margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.side-card h3::before{content:"";width:4px;height:14px;background:var(--teal);border-radius:2px}
+.side-nav{list-style:none;margin:0;padding:0}
+.side-nav li{margin:0}
+.side-nav a{
+  display:block;padding:6px 10px;font-size:var(--fs-sm);border-radius:var(--radius-sm);
+  color:var(--ink-soft);border-left:2px solid transparent;
+}
+.side-nav a:hover{background:#f3f2ec;color:var(--brand)}
+.side-nav a.active{background:var(--teal-soft);color:var(--teal);border-left-color:var(--teal);font-weight:600}
+.side-facts{list-style:none;margin:0;padding:0;font-size:var(--fs-sm)}
+.side-facts li{display:flex;justify-content:space-between;gap:8px;padding:5px 0;border-bottom:1px dashed var(--line)}
+.side-facts li:last-child{border-bottom:0}
+.side-facts b{color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* 回到顶部 */
+#toTop{
+  position:fixed;right:18px;bottom:22px;z-index:70;width:42px;height:42px;border-radius:50%;
+  border:1px solid var(--line);background:#fff;color:var(--brand);font-size:16px;cursor:pointer;
+  box-shadow:var(--shadow);opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease,transform .15s ease;
+}
+#toTop.show{opacity:1;visibility:visible}
+#toTop:hover{transform:translateY(-3px)}
+
+/* 页尾 */
+footer.site{
+  background:var(--brand);color:#c9cbe0;margin-top:var(--sp5);font-size:var(--fs-sm);
+}
+.foot-in{max-width:1180px;margin:0 auto;padding:var(--sp5) var(--sp3) var(--sp3)}
+.foot-top{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:var(--sp4)}
+.foot-brand{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.foot-brand .name{font-size:17px;font-weight:800;color:#fff;letter-spacing:.5px}
+.foot-brand svg{width:30px;height:30px}
+footer.site p{color:#a9acc6;margin:0;font-size:var(--fs-sm)}
+.foot-col h4{color:#fff;font-size:var(--fs-sm);margin-bottom:8px}
+.foot-col ul{list-style:none;margin:0;padding:0}
+.foot-col li{margin-bottom:6px}
+.foot-col a{color:#b7bad2;font-size:var(--fs-sm)}
+.foot-col a:hover{color:#ffd79a}
+.foot-bottom{
+  margin-top:var(--sp4);border-top:1px solid rgba(255,255,255,.13);padding-top:var(--sp3);
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:var(--fs-xs);color:#8e92ad;
+}
+
+/* 平板 */
+@media (max-width:960px){
+  .layout{grid-template-columns:1fr}
+  aside{order:2}
+  .hero{grid-template-columns:1fr;gap:var(--sp4);padding-top:var(--sp4)}
+  .hero-art{height:270px;max-width:520px}
+  .foot-top{grid-template-columns:1fr 1fr}
+  .deep{padding:var(--sp4)}
+}
+@media (max-width:760px){
+  header.site{top:0}
+  .notice-in{padding:6px 14px;font-size:12px}
+  .menu-btn{display:inline-block}
+  nav.main{
+    display:none;position:absolute;left:0;right:0;top:100%;background:#fff;
+    border-bottom:1px solid var(--line);padding:8px 14px 12px;box-shadow:var(--shadow-lift);
+    flex-direction:column;gap:2px;margin-left:0;
+  }
+  nav.main.open{display:flex}
+  nav.main a{padding:9px 8px;border-radius:6px;font-size:var(--fs-base)}
+  .head-in{flex-wrap:wrap;gap:8px;padding:9px 14px}
+  .search input{width:96px}
+  .pick-grid{grid-template-columns:1fr}
+  .overview{grid-template-columns:1fr;padding:var(--sp3)}
+  .hero h1{font-size:26px}
+  .hero p.lead{font-size:var(--fs-base)}
+  .block > h2{font-size:20px}
+  .deep h3{font-size:var(--fs-lg)}
+  .checks{font-size:var(--fs-xs)}
+  .updates li{grid-template-columns:64px 1fr;gap:6px}
+  .updates .tagline{grid-column:2;justify-self:start}
+  .hero-stats b{font-size:19px}
+  .foot-top{grid-template-columns:1fr}
+  .deep{padding:var(--sp3)}
+  #toTop{right:12px;bottom:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  .btn:hover,.pick-card:hover,.cat-index a:hover,#toTop:hover{transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="notice">
+  <div class="notice-in">
+    <span class="dot" aria-hidden="true"></span>
+    <span class="txt"><b>黑料社大赛</b> 第三季第 4 轮评审结果 2026-11-07 22:40 公布：图文证据链赛道 17 件作品进入复评</span>
+    <a href="/#updates">查看本轮更新</a>
+  </div>
+</div>
+
+<header class="site">
+  <div class="head-in">
+    <a class="brand" href="/#top" aria-label="回到首页顶部">
+      <svg viewBox="0 0 40 40" role="img" aria-hidden="true">
+        <rect width="40" height="40" rx="9" fill="#20264a"/>
+        <path d="M12 10h12l7 7v13H12z" fill="none" stroke="#f0a63c" stroke-width="2.4"/>
+        <path d="M17 18h9M17 23h9M17 28h5" stroke="#f0a63c" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span class="name">黑料社大赛</span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav">菜单</button>
+    <nav class="main" id="mainNav" aria-label="主题导航">
+      <a href="/#overview">赛事概览</a>
+      <a href="/#picks">精选作品</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#guide">观赛指南</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#rank">赛道榜单</a>
+    </nav>
+    <div class="head-tools">
+      <div class="search">
+        <label for="q" class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">站内查找</label>
+        <input id="q" type="search" placeholder="查作品 / 赛道" autocomplete="off">
+        <button id="qBtn" type="button">查找</button>
+      </div>
+    </div>
+  </div>
+  <div class="search-feedback" id="qFeedback" role="status" aria-live="polite"></div>
+</header>
+
+<div id="top"></div>
+
+<section class="hero" aria-labelledby="heroTitle">
+  <div>
+    <span class="tag">匿名爆料 · 证据竞技</span>
+    <h1 id="heroTitle">黑料社大赛</h1>
+    <p class="lead">一场把爆料稿当参赛作品来评的比赛。参赛者提交投稿原图、时间戳、可交叉验证的旁证与当事人回应，评审按证据完整度、时间线闭合度、改稿回应速度打分。三条赛道并行，单轮 7 天。</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="/#picks">浏览入选作品</a>
+      <a class="btn btn-ghost" href="/#guide">看参赛指南</a>
+    </div>
+    <div class="hero-stats">
+      <div><b>3</b><span>条竞赛赛道</span></div>
+      <div><b>17</b><span>本轮复评作品</span></div>
+      <div><b>7</b><span>天单轮周期</span></div>
+      <div><b>48h</b><span>回应时限</span></div>
+    </div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="board">
+      <div class="board-head"><i></i><i></i><i></i><span style="margin-left:6px">第 4 轮 · 赛道进度</span></div>
+      <div class="board-body">
+        <div class="track">
+          <div class="track-row"><span class="lbl">证据链</span><span class="bar"><i></i></span></div>
+          <div class="track-row"><span class="lbl">时间线</span><span class="bar"><i></i></span></div>
+          <div class="track-row"><span class="lbl">答疑区</span><span class="bar"><i></i></span></div>
+          <div class="track-row"><span class="lbl">复评池</span><span class="bar"><i></i></span></div>
+        </div>
+        <div class="stamp">评审中<br>11&nbsp;·&nbsp;07</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="layout">
+<main>
+
+  <section class="block" id="overview" aria-labelledby="hOverview">
+    <h2 id="hOverview">赛事概览：三赛道怎么分工</h2>
+    <p class="sub">2026 年第三季共四轮，赛制在上季基础上把“当事人回应”从加分项改成必交项。</p>
+    <div class="overview">
+      <div>
+        <h3>图文证据链赛道</h3>
+        <p>提交原始截图、录屏与时间戳。评审看的是证据能不能自洽，而不是结论有多猛。第 4 轮收到 143 份，进入复评 17 份。</p>
+      </div>
+      <div>
+        <h3>时间线复盘赛道</h3>
+        <p>要求把事件按日期排成可核查的时间轴，至少三处交叉来源。10 月 29 日新增“反向事实”一栏，专列与主结论矛盾的材料。</p>
+      </div>
+      <div>
+        <h3>评论区答疑赛道</h3>
+        <p>参赛者在作品下回应质疑，48 小时内给出补充材料或修改说明。11 月 3 日起，答非所问会被记一次扣分。</p>
+      </div>
+      <div class="wide">
+        <h3>评分权重（第 4 轮执行版）</h3>
+        <p>证据完整度 40 分，时间线闭合度 25 分，回应质量 20 分，可复核性 15 分。评审组 7 人，去掉最高最低各一个后取均值。低于 60 分的作品不进榜单，但保留在作品库供检索。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="picks" aria-labelledby="hPicks">
+    <h2 id="hPicks">精选作品推荐</h2>
+    <p class="sub">本轮编辑挑出的四件，均已完成回应环节，可点开对照原始材料。</p>
+    <div class="pick-grid">
+      <article class="pick-card">
+        <img src="https://picsum.photos/seed/heiliaoshe-pick-01/640/360" width="640" height="360" loading="lazy" alt="书桌上摊开的打印时间线表格与红色标记笔" style="object-fit:cover">
+        <div class="pc-body">
+          <span class="badge">证据链</span>
+          <h3 style="margin-top:8px">便利店监控时间戳错位 42 分钟</h3>
+          <p>作者用收银机小票、外卖平台接单记录和门口车辆行驶记录仪画面三点对齐，指出原视频时间戳偏移。</p>
+          <div class="meta"><span>作者：@纸箱记录员</span><span>11-05 提交</span></div>
+        </div>
+      </article>
+      <article class="pick-card">
+        <img src="https://picsum.photos/seed/heiliaoshe-pick-02/640/360" width="640" height="360" loading="lazy" alt="白板上的手写时间轴便签，按日期排列" style="object-fit:cover">
+        <div class="pc-body">
+          <span class="badge acc">时间线</span>
+          <h3 style="margin-top:8px">9 月 19 日到 10 月 2 日的转账记录复盘</h3>
+          <p>把 11 笔转账按银行回单编号排序，指出其中 2 笔备注与聊天截图对不上，并附上当事人的书面回应。</p>
+          <div class="meta"><span>作者：@南巷账本</span><span>11-04 提交</span></div>
+        </div>
+      </article>
+      <article class="pick-card">
+        <img src="https://picsum.photos/seed/heiliaoshe-pick-03/640/360" width="640" height="360" loading="lazy" alt="手机屏幕截图被放大后标注坐标网格" style="object-fit:cover">
+        <div class="pc-body">
+          <span class="badge">证据链</span>
+          <h3 style="margin-top:8px">聊天截图里的状态栏曝光与机型比对</h3>
+          <p>作者调出同型号手机的系统字体与状态栏布局，指出原图分辨率与所称机型不符，属拼接。</p>
+          <div class="meta"><span>作者：@像素打假组</span><span>11-03 提交</span></div>
+        </div>
+      </article>
+      <article class="pick-card">
+        <img src="https://picsum.photos/seed/heiliaoshe-pick-04/640/360" width="640" height="360" loading="lazy" alt="咖啡馆桌面上的笔记本与录音笔并排摆放" style="object-fit:cover">
+        <div class="pc-body">
+          <span class="badge warn">答疑</span>
+          <h3 style="margin-top:8px">被质疑删评后，作者补了 6 段回复记录</h3>
+          <p>评论区第 38 条到第 44 条完整导出，含时间与账号后缀；作者承认误删 2 条，其余为折叠显示。</p>
+          <div class="meta"><span>作者：@夜班值守</span><span>11-02 提交</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="updates" aria-labelledby="hUpdates">
+    <h2 id="hUpdates">最新更新与赛程节点</h2>
+    <p class="sub">时间以评审组公示页为准，改写或撤回会在此处留痕。</p>
+    <div class="updates">
+      <ul>
+        <li><span class="t">11-07 22:40</span><span><b>第 4 轮复评名单公布</b>，17 件作品进入复评，其中时间线赛道 6 件</span><span class="tagline">官方</span></li>
+        <li><span class="t">11-06 15:10</span><span>参赛作品《转账记录复盘》作者回应第 12 条质疑，补充银行回单编号 3 张</span><span class="tagline">补交</span></li>
+        <li><span class="t">11-04 09:30</span><span>规则调整：答疑赛道“答非所问”改为一次扣 3 分，原为口头提醒</span><span class="tagline">规则</span></li>
+        <li><span class="t">11-02 20:05</span><span>第 3 轮共收到 216 份投稿，退回 58 份，主要原因是缺当事人回应</span><span class="tagline">统计</span></li>
+        <li><span class="t">10-31 11:20</span><span>评委名单新增两位外部核查员，负责时间线赛道的交叉来源抽查</span><span class="tagline">人事</span></li>
+        <li><span class="t">10-29 18:00</span><span>时间线赛道模板加“反向事实”栏，未填写视为不完整</span><span class="tagline">模板</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="cats" aria-labelledby="hCats">
+    <h2 id="hCats">分类入口</h2>
+    <p class="sub">按你关心的证据类型找作品，数字是本季已归档条目数。</p>
+    <div class="cat-index">
+      <a href="/#picks">原始截图核对 <small>64</small></a>
+      <a href="/#picks">聊天记录比对 <small>51</small></a>
+      <a href="/#picks">转账与回单 <small>38</small></a>
+      <a href="/#picks">监控与时间戳 <small>27</small></a>
+      <a href="/#deep">当事人回应 <small>45</small></a>
+      <a href="/#deep">反向事实清单 <small>19</small></a>
+      <a href="/#guide">参赛模板 <small>7</small></a>
+      <a href="/#faq">复核与申诉 <small>12</small></a>
+      <a href="/#rank">赛道榜 <small>3</small></a>
+      <a href="/#comments">评论区答疑记录 <small>88</small></a>
+    </div>
+  </section>
+
+  <section class="block" id="deep" aria-labelledby="hDeep">
+    <h2 id="hDeep">深度解析：把爆料当证据用，差在哪一步</h2>
+    <div class="deep">
+      <p>第三季第 4 轮退回的 58 份作品里，有 41 份的退回理由集中在同一处：材料本身可能是真的，但它证明不了自己说的那件事。这个差别听起来绕，落到具体案例上非常直白。</p>
+
+      <h3>一、截图是真的，时间不一定是真的</h3>
+      <p>11 月 3 日提交的《聊天截图里的状态栏曝光与机型比对》是这轮里最扎实的一件。作者做了三件事：把原图放大到状态栏图标边缘统计像素宽度；用同型号手机截一张对照图；再查该机型在 2025 年 8 月的系统更新说明，确认那次更新后电量图标间距变了。三份材料落在同一个判断上——原图标注的“10 月 12 日深夜”与图标版本对不上。</p>
+      <p>反过来说，同一轮被退回的《某小区群聊记录》只给了一张截图和一句“千真万确”。评审在退回意见里写：截图里群名被涂掉，消息条数与滚动条长度不匹配，无法判断是否删除了中间消息。这就是可复核性的差距，跟结论是否接近事实无关。</p>
+      <div class="claim"><b>可被反驳的判断：</b>在爆料类比赛里，材料“看上去真”带来的分数，低于材料“能被别人重新算一遍”带来的分数。第 4 轮复评的 17 件作品中，有 15 件提供了可重新获取的原始文件或第三方可查询编号；被退回的 58 件里，这个数字是 9 件。</div>
+
+      <h3>二、当事人回应时限缩短后，改稿反而变慢</h3>
+      <table class="checks">
+        <caption style="caption-side:bottom;font-size:12px;color:#6a7080;padding-top:6px;text-align:left">数据来源：赛事公示页第 2—4 轮统计，2026-10-29 至 11-07</caption>
+        <thead>
+          <tr><th>轮次</th><th>回应时限</th><th>按时回应作品</th><th>回应后修改正文</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>第 2 轮</td><td class="num">72 小时</td><td class="num">96 件</td><td class="num">61 件</td></tr>
+          <tr><td>第 3 轮</td><td class="num">48 小时</td><td class="num">104 件</td><td class="num">49 件</td></tr>
+          <tr><td>第 4 轮</td><td class="num">48 小时</td><td class="num">117 件</td><td class="num">43 件</td></tr>
+        </tbody>
+      </table>
+      <p>时限从 72 小时压到 48 小时后，按时回应的作品涨了，但回应完愿意回头改正文的比例从 63.5% 掉到 36.8%。评审组 11 月 4 日加的那条“答非所问扣 3 分”，针对的就是这个现象：很多人赶在时限内回一句“已阅，谢谢指正”，正文一字未动。这条规则的副作用是第 4 轮答疑区字数普遍变短，但修改说明出现得更集中。</p>
+
+      <h3>三、时间线的“反向事实”栏，最容易被写空</h3>
+      <p>10 月 29 日模板新增“反向事实”一栏后，第 4 轮时间线赛道收到的 6 件复评作品里，只有 2 件填了三条以上。@南巷账本 那件把与主结论矛盾的两笔转账单列出来，写“若这两笔实为借款，则 9 月 26 日的结论不成立”，评审给了这一项满分。另一件只写了“暂未发现反例”，被评委在意见里点出：未发现不等于不存在，需要写明检索范围和检索日期。</p>
+      <div class="quote">“查过什么、什么时候查的、查不到怎么处理，这三句比一句‘没有反例’有用得多。”<cite>—— 外部核查员 @周礼安，11 月 6 日答疑记录第 3 条</cite></div>
+
+      <h3>四、一条可核对的事实边界</h3>
+      <p>关于《便利店监控时间戳错位 42 分钟》这件作品，目前能确认的事实是：门店收银系统日志显示交易时间 10 月 18 日 21:07，原视频右上角时间显示 21:49。作者据此判断时间戳偏移。而“偏移由设备断网重连导致”这一说法，截至 11 月 7 日仍属作者推测，门店方面尚未回应，评审在公示页把它标为待核实。把这三层拆开写，正是时间线赛道今年强调的写法。</p>
+      <p>另一件被广泛转述的说法是“组委会要取消图文赛道”。第 4 轮公示页只写了“图文赛道评审周期由 3 天延长至 4 天”，没有任何取消表述。转述与原文之间的差距，在本季至少出现了 5 次，均记录在规则变更页。</p>
+    </div>
+  </section>
+
+  <section class="block" id="guide" aria-labelledby="hGuide">
+    <h2 id="hGuide">体验指南：第一次参赛怎么走完一轮</h2>
+    <p class="sub">按第 4 轮的提交界面操作，顺序错了会卡在材料上传。</p>
+    <ol class="steps">
+      <li><b>先定赛道，再定题目</b>证据链赛道看材料能不能自洽，时间线赛道看你排得清不清楚，答疑赛道看回应质量。选题前先想清楚手上最硬的那份材料属于哪一类。</li>
+      <li><b>原始文件单独存一份</b>截图不要二次压缩，录屏保留原始帧率。系统会校验文件上传递交时间与拍摄时间的差值，超过 90 天需要填写说明。</li>
+      <li><b>写 200 字以内的结论段</b>先说主张，再说依据了哪几份材料。评审第一遍只看这段，写不清的会被退回重写。</li>
+      <li><b>列反向事实</b>写明检索范围、检索日期、查不到时怎么处理。至少两条，少于两条的时间线作品不进入复评。</li>
+      <li><b>盯住答疑区</b>48 小时内逐条回应。补充材料放同一楼层，不要新开帖，否则统计时不计入回应率。</li>
+      <li><b>终稿留修改说明</b>改了什么、为什么改、依据哪条质疑。第 4 轮有 43 件作品写了修改说明，这 43 件的复评通过率是 55.8%，其余为 21.2%。</li>
+    </ol>
+  </section>
+
+  <section class="block" id="faq" aria-labelledby="hFaq">
+    <h2 id="hFaq">常见问题</h2>
+    <p class="sub">问题来自 11 月 3 日至 11 月 6 日答疑区的高频提问。</p>
+
+    <details class="faq">
+      <summary>参赛作品被退回后还能改吗？</summary>
+      <div class="a">能。退回后 24 小时内可重新提交一次，超过时限进入下一轮。第 4 轮被退回的 58 份中，有 31 份在时限内重交，其中 9 份进入复评。重交时系统会保留原版本，评审可以看到改动痕迹。</div>
+    </details>
+    <details class="faq">
+      <summary>当事人回应必须由本人提供吗？</summary>
+      <div class="a">优先本人书面回应。联系不上时，可采用公开渠道的书面表态、代理律师函或平台客服答复，但需要注明获取时间与获取方式。仅凭“对方不说话”不能替代回应栏，这一栏空着会直接判不完整。</div>
+    </details>
+    <details class="faq">
+      <summary>截图里的账号名要不要打码？</summary>
+      <div class="a">与主张无关的第三方账号要打码，当事人账号保留首字符加后缀。第 4 轮有两件作品因为把围观者昵称完整露出被退回，退回理由写的是“无关个人信息暴露”。打码方式建议统一，不要一处全遮一处全露。</div>
+    </details>
+    <details class="faq">
+      <summary>时间线赛道的“反向事实”填多少条合适？</summary>
+      <div class="a">复评作品普遍填三到五条。少于两条不进入复评，超过八条反而稀释重点，评审要看的是与主结论直接冲突的材料，不是把所有疑点堆上去。每条要写检索范围与检索日期。</div>
+    </details>
+    <details class="faq">
+      <summary>评论区的质疑可以不回吗？</summary>
+      <div class="a">可以，但会计入回应率。第 4 轮起，回应率低于 60% 的作品在“回应质量”一项最高得 12 分（满分 20）。若质疑涉及材料造假指控，评审组会单独发函，必须在 48 小时内答复。</div>
+    </details>
+    <details class="faq">
+      <summary>评审分数在哪里查？</summary>
+      <div class="a">公示页按作品编号列出四个分项得分与总分，不公布单个评委打分。对分数有异议可在公示后 72 小时内提交复核申请，复核只核分项加总与规则适用，不重新评审内容。</div>
+    </details>
+  </section>
+
+  <section class="block" id="comments" aria-labelledby="hComments">
+    <h2 id="hComments">用户评论与答疑摘录</h2>
+    <p class="sub">摘自 11 月 4 日至 11 月 7 日作品页评论区，保留原始语气。</p>
+    <div class="comments">
+      <div class="cmt">
+        <div class="who"><span class="av">纸</span><b>@纸箱记录员</b><span>11-07 09:12</span></div>
+        <p>《便利店监控》那件的时间戳我按收银小票重算了一遍，21:07 那个交易号在门店日志里能对上，42 分钟确实存在。但“断网重连”这个解释我持保留，门店路由日志没人拿到。</p>
+        <div class="repl">作者回复：路由日志已申请，门店说需要走流程，拿到后补在楼层 7。</div>
+      </div>
+      <div class="cmt">
+        <div class="who"><span class="av">南</span><b>@南巷账本</b><span>11-06 20:41</span></div>
+        <p>反向事实那栏我写了五条，其中两条把自己结论推翻了一半。评审给了满分，但评论区有人问是不是自相矛盾。我觉得写清楚检索范围比结论完美更重要。</p>
+      </div>
+      <div class="cmt">
+        <div class="who"><span class="av">路</span><b>@路口围观</b><span>11-06 14:03</span></div>
+        <p>说句不太客气的：这轮好几件作品的“结论段”写得像通稿，材料是硬的，话是虚的。建议评审把结论段单独拎出来打分，《像素打假组》那件就写得清楚，一句话说完主张。</p>
+      </div>
+      <div class="cmt">
+        <div class="who"><span class="av">夜</span><b>@夜班值守</b><span>11-05 23:17</span></div>
+        <p>删评那事我认，确实误删了两条，已经把后台记录全导出来了。折叠显示那部分是我自己没搞懂机制，怪不了平台。第 38 到 44 条按顺序贴，谁想看都能对。</p>
+        <div class="repl">路过的 @阿岚 回复：导出记录时间戳是整点，有点可疑，建议贴带秒的版本。</div>
+      </div>
+      <div class="cmt">
+        <div class="who"><span class="av">周</span><b>@周礼安</b><span>11-05 10:26</span></div>
+        <p>时间线赛道这轮最可惜的是《9 月转账记录》缺了银行回单的查询编号，只贴了截图。材料真实性我不怀疑，但缺编号就没法让别人重查，扣的分在可复核性上。</p>
+      </div>
+      <div class="cmt">
+        <div class="who"><span class="av">阿</span><b>@阿岚</b><span>11-04 21:55</span></div>
+        <p>答疑赛道扣分规则改了以后，回应确实变短。我翻了十件作品，有四件只回了“感谢指正，已修改”，正文却没动，这种是不是该直接判不合格？规则写得还是太软。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="news" aria-labelledby="hNews">
+    <h2 id="hNews">相关资讯</h2>
+    <p class="sub">与赛制、核查方法、作品动向有关的短讯，每条只有一处新信息。</p>
+    <ul class="news-list">
+      <li><span><b>外部核查员抽查比例从 10% 提到 25%</b>，抽查对象为时间线赛道全部复评作品</span><span class="d">11-06</span></li>
+      <li><span><b>第 3 轮退回原因统计公开</b>：缺当事人回应 27 份，材料无法复核 19 份，题目与内容不符 12 份</span><span class="d">11-02</span></li>
+      <li><span><b>作品《像素打假组》作者接受站内访谈</b>，谈状态栏比对的像素统计方法</span><span class="d">11-01</span></li>
+      <li><span><b>答疑区新增折叠显示说明页</b>，解释“评论被折叠不等于删除”的判定依据</span><span class="d">10-30</span></li>
+      <li><span><b>图文证据链赛道评审周期延长一天</b>，原定 3 天改为 4 天，复评名单顺延</span><span class="d">11-07</span></li>
+    </ul>
+  </section>
+
+  <section class="block" id="related" aria-labelledby="hRelated">
+    <h2 id="hRelated">相关推荐</h2>
+    <p class="sub">按你正在看的内容延伸，标签即入口。</p>
+    <div class="tags">
+      <a href="/#picks">监控时间戳比对</a>
+      <a href="/#picks">聊天记录状态栏鉴定</a>
+      <a href="/#deep">反向事实清单怎么写</a>
+      <a href="/#guide">参赛材料上传流程</a>
+      <a href="/#faq">作品退回后重交规则</a>
+      <a href="/#comments">评论区质疑回应记录</a>
+      <a href="/#rank">第 4 轮复评作品榜</a>
+      <a href="/#news">评审周期调整说明</a>
+    </div>
+  </section>
+
+  <section class="block" id="rank" aria-labelledby="hRank">
+    <h2 id="hRank">第 4 轮复评作品榜</h2>
+    <p class="sub">按四项加权总分排序，分数截至 11 月 7 日 22:40，复核后可能微调。</p>
+    <div class="rank">
+      <ol>
+        <li><span><b>聊天截图里的状态栏曝光与机型比对</b> · 图文证据链赛道</span><span class="score">92.4</span></li>
+        <li><span><b>9 月 19 日到 10 月 2 日的转账记录复盘</b> · 时间线赛道</span><span class="score">89.1</span></li>
+        <li><span><b>便利店监控时间戳错位 42 分钟</b> · 图文证据链赛道</span><span class="score">87.6</span></li>
+        <li><span><b>被质疑删评后补的 6 段回复记录</b> · 评论区答疑赛道</span><span class="score">84.3</span></li>
+        <li><span><b>群聊记录消息条数与滚动条长度校验</b> · 图文证据链赛道</span><span class="score">81.9</span></li>
+        <li><span><b>10 月 18 日门店路由日志申请进度</b> · 时间线赛道</span><span class="score">78.5</span></li>
+      </ol>
+    </div>
+  </section>
+
+</main>
+
+<aside aria-label="侧栏信息">
+  <div class="side-card">
+    <h3>栏目导航</h3>
+    <ul class="side-nav" id="sideNav">
+      <li><a href="/#overview">赛事概览</a></li>
+      <li><a href="/#picks">精选作品推荐</a></li>
+      <li><a href="/#updates">最新更新</a></li>
+      <li><a href="/#cats">分类入口</a></li>
+      <li><a href="/#deep">深度解析</a></li>
+      <li><a href="/#guide">体验指南</a></li>
+      <li><a href="/#faq">常见问题</a></li>
+      <li><a href="/#comments">用户评论</a></li>
+      <li><a href="/#news">相关资讯</a></li>
+      <li><a href="/#related">相关推荐</a></li>
+      <li><a href="/#rank">复评作品榜</a></li>
+    </ul>
+  </div>
+  <div class="side-card">
+    <h3>本轮数字</h3>
+    <ul class="side-facts">
+      <li><span>投稿总数</span><b>143 份</b></li>
+      <li><span>退回作品</span><b>58 份</b></li>
+      <li><span>进入复评</span><b>17 份</b></li>
+      <li><span>按时回应率</span><b>81.8%</b></li>
+      <li><span>修改正文比例</span><b>36.8%</b></li>
+      <li><span>复核申请截止</span><b>11-10</b></li>
+    </ul>
+  </div>
+  <div class="side-card">
+    <h3>核查工具入口</h3>
+    <ul class="side-nav">
+      <li><a href="/#guide">截图像素比对步骤</a></li>
+      <li><a href="/#deep">时间戳偏移自查清单</a></li>
+      <li><a href="/#faq">回应时限计算说明</a></li>
+    </ul>
+  </div>
+</aside>
+</div>
+
+<button id="toTop" type="button" aria-label="回到页面顶部">↑</button>
+
+<footer class="site">
+  <div class="foot-in">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">
+          <svg viewBox="0 0 40 40" role="img" aria-hidden="true">
+            <rect width="40" height="40" rx="9" fill="#2e3663"/>
+            <path d="M12 10h12l7 7v13H12z" fill="none" stroke="#f0a63c" stroke-width="2.4"/>
+            <path d="M17 18h9M17 23h9M17 28h5" stroke="#f0a63c" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+          <span class="name">黑料社大赛</span>
+        </div>
+        <p>把爆料稿当证据作品来评审的赛事平台，三赛道并行，单轮七天，材料与回应都留痕可查。</p>
+      </div>
+      <div class="foot-col">
+        <h4>赛道与规则</h4>
+        <ul>
+          <li><a href="/#overview">图文证据链赛道</a></li>
+          <li><a href="/#overview">时间线复盘赛道</a></li>
+          <li><a href="/#overview">评论区答疑赛道</a></li>
+          <li><a href="/#guide">参赛材料上传流程</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>作品与答疑</h4>
+        <ul>
+          <li><a href="/#picks">精选作品推荐</a></li>
+          <li><a href="/#rank">第 4 轮复评作品榜</a></li>
+          <li><a href="/#faq">作品退回后重交规则</a></li>
+          <li><a href="/#comments">评论区质疑回应记录</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>本页所列作品条目、分数、时间为示例数据，仅供参考；实际信息以赛事公示页为准。</span>
+      <span>页面更新：2026-11-08 · 对应正文第 4 轮复评名单与规则调整</span>
+    </div>
+    <div class="foot-bottom" style="border-top:0;margin-top:8px;padding-top:0">
+      <span>© 2026 黑料社大赛 · 内容由参赛者与评审组共同维护</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var menuBtn=document.getElementById('menuBtn');
+  var mainNav=document.getElementById('mainNav');
+  if(menuBtn&&mainNav){
+    menuBtn.addEventListener('click',function(){
+      var open=mainNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    mainNav.addEventListener('click',function(e){
+      if(e.target.tagName==='A'&&window.innerWidth<=760){
+        mainNav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  var q=document.getElementById('q');
+  var qBtn=document.getElementById('qBtn');
+  var fb=document.getElementById('qFeedback');
+  function doSearch(){
+    var kw=(q.value||'').trim();
+    if(!kw){fb.style.display='none';fb.textContent='';return;}
+    var pool=[].slice.call(document.querySelectorAll('main h2, main h3, main li, main p, main summary, main a'));
+    var hits=[];
+    pool.forEach(function(el){
+      if(el.closest('#qFeedback'))return;
+      var t=(el.textContent||'').trim();
+      if(t&&t.indexOf(kw)>-1&&hits.length<6){
+        hits.push(t.slice(0,42).replace(/\s+/g,' '));
+      }
+    });
+    fb.style.display='block';
+    if(hits.length){
+      fb.style.color='#2f6f6a';
+      fb.textContent='找到 '+hits.length+' 条相关内容：'+hits.join(' / ');
+    }else{
+      fb.style.color='#a63a34';
+      fb.textContent='没有找到与“'+kw+'”匹配的作品或条款，试试换用“时间戳”“回应”“反向事实”等词。';
+    }
+  }
+  if(qBtn&&q){qBtn.addEventListener('click',doSearch);}
+  if(q){q.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();doSearch();}});}
+
+  var toTop=document.getElementById('toTop');
+  if(toTop){
+    window.addEventListener('scroll',function(){
+      if(window.scrollY>560){toTop.classList.add('show');}
+      else{toTop.classList.remove('show');}
+    },{passive:true});
+    toTop.addEventListener('click',function(){
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  }
+
+  var sideLinks=[].slice.call(document.querySelectorAll('#sideNav a'));
+  var secs=sideLinks.map(function(a){
+    var id=a.getAttribute('href').replace('/#','');
+    return document.getElementById(id);
+  });
+  function syncNav(){
+    var pos=window.scrollY+140;
+    var idx=-1;
+    secs.forEach(function(s,i){
+      if(s&&s.offsetTop<=pos){idx=i;}
+    });
+    sideLinks.forEach(function(a,i){
+      a.classList.toggle('active',i===idx);
+    });
+  }
+  window.addEventListener('scroll',syncNav,{passive:true});
+  syncNav();
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"WebSite",
+      "name":"黑料社大赛",
+      "inLanguage":"zh-CN",
+      "description":"围绕匿名爆料与证据核实展开的竞技赛事，三赛道并行，单轮七天。"
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"参赛作品被退回后还能改吗？","acceptedAnswer":{"@type":"Answer","text":"能。退回后24小时内可重新提交一次，超过时限进入下一轮。重交时系统保留原版本，评审可看到改动痕迹。"}},
+        {"@type":"Question","name":"当事人回应必须由本人提供吗？","acceptedAnswer":{"@type":"Answer","text":"优先本人书面回应。联系不上时可采用公开渠道的书面表态、代理律师函或平台客服答复，需注明获取时间与方式，回应栏空着会判不完整。"}},
+        {"@type":"Question","name":"截图里的账号名要不要打码？","acceptedAnswer":{"@type":"Answer","text":"与主张无关的第三方账号要打码，当事人账号保留首字符加后缀。暴露无关个人信息会被退回。"}},
+        {"@type":"Question","name":"时间线赛道的反向事实填多少条合适？","acceptedAnswer":{"@type":"Answer","text":"复评作品普遍填三到五条。少于两条不进入复评，超过八条会稀释重点。每条要写检索范围与检索日期。"}},
+        {"@type":"Question","name":"评论区的质疑可以不回吗？","acceptedAnswer":{"@type":"Answer","text":"可以不回，但会计入回应率。第4轮起回应率低于60%的作品在回应质量一项最高得12分。涉及造假指控须48小时内答复。"}},
+        {"@type":"Question","name":"评审分数在哪里查？","acceptedAnswer":{"@type":"Answer","text":"公示页按作品编号列出四个分项得分与总分，不公布单个评委打分。可在公示后72小时内提交复核申请，复核只核分项加总与规则适用。"}}
+      ]
+    }
+  ]
+}
+</script>
+</body>
+  </html>
